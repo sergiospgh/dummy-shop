@@ -7,15 +7,5 @@
   "semi": true,
   "bracketSpacing": true,
   "arrowParens": "always",
-  "endOfLine": "auto",
-  "overrides": [
-    {
-      "files": "*.html",
-      "options": {
-        "singleQuote": false,
-        "parser": "angular",
-        "tabWidth": 4
-      }
-    }
-  ]
+  "endOfLine": "auto"
 }

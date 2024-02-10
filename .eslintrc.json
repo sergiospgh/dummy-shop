@@ -13,9 +13,11 @@
         "plugin:@typescript-eslint/recommended",
         "plugin:@angular-eslint/recommended",
         "plugin:@angular-eslint/template/process-inline-templates",
-        "plugin:prettier/recommended"
+        "plugin:prettier/recommended",
+        "plugin:@ngrx/recommended"
       ],
       "rules": {
+        "@ngrx/no-typed-global-store": "off",
         "@angular-eslint/directive-selector": [
           "error",
           {
@@ -31,6 +33,15 @@
             "prefix": "app",
             "style": "kebab-case"
           }
+        ],
+        "prettier/prettier": [
+          "error",
+          {
+            "endOfLine": "auto"
+          },
+          {
+            "usePrettierrc": true
+          }
         ]
       }
     },
@@ -39,18 +50,9 @@
         "*.html"
       ],
       "extends": [
-        "plugin:@angular-eslint/template/recommended",
-        "plugin:@angular-eslint/template/accessibility",
-        "plugin:prettier/recommended"
+        "plugin:@angular-eslint/template/recommended"
       ],
-      "rules": {
-        "prettier/prettier": [
-          "error",
-          {
-            "parser": "angular"
-          }
-        ]
-      }
+      "rules": {}
     }
   ]
 }

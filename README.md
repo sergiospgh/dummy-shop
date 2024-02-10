@@ -1,6 +1,10 @@
 # DummyShop
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0 and Node version 18.10.0
+This project was generated with
+_ [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0
+_ [Node JS](https://nodejs.org/en) version 18.10.0
+
+TODO: Añadir descripción del proyecto
 
 ## Development server
 
@@ -22,6 +26,30 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+# He añadido
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Prettier
+ESLint
+Patrón Redux (NgRx)
+Patrón Fachada (Facade)
+Patrón de diseño (BEM)
+LazyLoading
+PrimeFlex para facilitar diseño desde HTML
+Algo de testing unitario
+
+# No he añadido (por falta de tiempo o por no ser necesario)
+
+NGX-Translate ni multi-idioma
+Husky
+Environments
+Docker
+Framework de diseño (Bootstrap, Material, PrimeNG, etc)
+Metareducers para control de sesión y persistencia de datos
+Control de diferentes pestañas o ventanas abiertas con la misma aplicación, refresco de pestaña, cierre de pestaña o navegador, etc. (más allá de lo que controla Redux)
+Timers inactividad y/o de sesión máxima de usuario
+Interceptor de errores que muestre un modal con los error que vengan del Backend
+No le he pasado checkeos de SonarQube
+
+# Pensando si añadirlo
+
+BACKEND Mockeado (con service-workers)
