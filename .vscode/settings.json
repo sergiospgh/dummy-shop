@@ -1,0 +1,78 @@
+{
+  // Todas estas configuracione se pueden buscar y probar en los settings con "Ctrl+," o en el apartado de "Settings"
+  // Ajustes del editor
+  "editor.wordWrap": "on",
+  "editor.suggestSelection": "first",
+  "editor.formatOnPaste": true,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.fontFamily": "Cascadia Code, monospace",
+  "editor.fontLigatures": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "editor.linkedEditing": true,
+  "editor.stickyScroll.enabled": true,
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.snippetSuggestions": "top",
+  "editor.inlineSuggest.enabled": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  "breadcrumbs.enabled": true,
+  "workbench.startupEditor": "none",
+  "workbench.iconTheme": "vscode-icons",
+  "diffEditor.ignoreTrimWhitespace": false,
+  // Cofiguraciones git
+  "git.autofetch": true,
+  // Perfiles de terminales
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
+    },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "icon": "terminal-cmd"
+    },
+    "GitBash": {
+      "path": [
+        "C:\\Program Files\\Git\\bin\\bash.exe",
+        "D:\\Program Files\\Git\\bin\\bash.exe"
+      ],
+      "icon": "terminal-bash"
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "GitBash",
+  "terminal.integrated.fontFamily": "monospace",
+  // Formateo de código
+  "[typescript]": {
+    // "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    // "editor.defaultFormatter": "vscode.html-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "sibiraj-s.vscode-scss-formatter"
+  },
+  "prettier.singleQuote": true,
+  "eslint.validate": [
+    "javascript",
+    "typescript"
+  ],
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.preferences.importModuleSpecifierEnding": "minimal",
+  "scssFormatter.singleQuote": true,
+  // No recuerdo para que es esto
+  "angular.enable-strict-mode-prompt": false,
+}
