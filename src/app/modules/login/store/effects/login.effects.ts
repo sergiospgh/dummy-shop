@@ -4,7 +4,12 @@ import { LoginService } from '@app/services/login.service';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { ROUTES } from '@shared/constants/routes.constants';
 import { catchError, map, of, switchMap, tap } from 'rxjs';
-import { logIn, logInFailure, logInSuccess } from '../actions/login.actions';
+import {
+  logIn,
+  logInFailure,
+  logInSuccess,
+  logOut,
+} from '../actions/login.actions';
 
 @Injectable()
 export class LoginEffects {
@@ -31,4 +36,14 @@ export class LoginEffects {
       )
     );
   });
+
+  readonly logOut$ = createEffect(
+    () => {
+      return this.actions.pipe(
+        ofType(logOut),
+        tap(() => this.router.navigate([ROUTES.LOGIN]))
+      );
+    },
+    { dispatch: false }
+  );
 }

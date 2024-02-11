@@ -1,0 +1,33 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+
+  main {
+    padding-top: 80px;
+    width: 100%;
+  }
+}
+
+.products {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+.product {
+  display: flex;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.producto-imagen {
+  width: 100px;
+  margin-right: 10px;
+}
+
+img {
+  width: 100%;
+  border-radius: 4px;
+}

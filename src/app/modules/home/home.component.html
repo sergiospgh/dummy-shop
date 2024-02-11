@@ -1,1 +1,20 @@
-Home component Works!
+<div class="container">
+  <app-header (logOut)="onLogOut()"></app-header>
+
+  <main>
+    <section class="products">
+      <div *ngFor="let producto of productos" class="product">
+        <div class="producto-imagen">
+          <img src="{{ producto.imagen }}" alt="{{ producto.nombre }}" />
+        </div>
+        <div class="producto-info">
+          <h3>{{ producto.nombre }}</h3>
+          <p>{{ producto.precio }}</p>
+          <button (click)="onAddToFavorites(producto)">
+            Añadir a Favoritos
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>

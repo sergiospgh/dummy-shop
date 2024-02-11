@@ -53,3 +53,4 @@ No le he pasado checkeos de SonarQube
 # Pensando si añadirlo
 
 BACKEND Mockeado (con service-workers)
+Añadir variables.scss con colores, tamaños, estilos de botones, etc

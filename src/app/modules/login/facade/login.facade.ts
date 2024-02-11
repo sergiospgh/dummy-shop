@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from '@shared/interfaces/app.interface';
 import { LoginPayload } from '@shared/payloads/login.payload';
 import { Observable, Subject, map } from 'rxjs';
-import { logIn } from '../store/actions/login.actions';
+import { logIn, logOut } from '../store/actions/login.actions';
 import { selectToken } from '../store/selectors/login.selectors';
 
 @Injectable()
@@ -23,8 +23,7 @@ export class LoginFacade implements OnDestroy {
   }
 
   logOut(): void {
-    // TODO: Call logOut action
-    // this.router.navigate([ROUTES.LOGIN]);
+    this.store.dispatch(logOut());
   }
 
   userIsAuthenticated(): Observable<boolean> {
