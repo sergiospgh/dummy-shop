@@ -1,0 +1,14 @@
+<div class="products-container">
+  <div *ngFor="let product of products" class="products-container__product">
+    <div class="favorite" (click)="onAddToFavorites(product)">
+      <i class="pi pi-heart cursor-pointer"></i>
+    </div>
+    <img src="{{ product.thumbnail }}" alt="" height="150" width="200" />
+
+    <div class="products-container__product__info">
+      <span class="title">{{ product.title }}</span>
+      <span class="description">{{ product.description }}</span>
+      <span class="price">{{ product.price }}$</span>
+    </div>
+  </div>
+</div>

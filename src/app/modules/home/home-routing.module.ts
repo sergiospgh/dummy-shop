@@ -6,6 +6,23 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+    children: [
+      {
+        path: 'products',
+        loadChildren: () =>
+          import('./components/products/products.module').then(
+            (m) => m.ProductsModule
+          ),
+      },
+      // {
+      //   path: 'favorites',
+      //   loadChildren: () =>
+      //     import('../favorites/favorites.module').then(
+      //       (m) => m.FavoritesModule
+      //     ),
+      // },
+      { path: '', redirectTo: 'products', pathMatch: 'full' },
+    ],
   },
 ];
 

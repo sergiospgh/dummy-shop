@@ -11,8 +11,6 @@ export class HeaderComponent {
 
   Routes = ROUTES;
 
-  constructor() {}
-
   onLogOut() {
     this.logOut.emit();
   }

@@ -35,6 +35,7 @@ Patrón Fachada (Facade)
 Patrón de diseño (BEM)
 LazyLoading
 PrimeFlex para facilitar diseño desde HTML
+PrimeIcons para algunos iconos
 Algo de testing unitario
 
 # No he añadido (por falta de tiempo o por no ser necesario)
@@ -49,6 +50,7 @@ Control de diferentes pestañas o ventanas abiertas con la misma aplicación, re
 Timers inactividad y/o de sesión máxima de usuario
 Interceptor de errores que muestre un modal con los error que vengan del Backend
 No le he pasado checkeos de SonarQube
+Resolvers
 
 # Pensando si añadirlo
 

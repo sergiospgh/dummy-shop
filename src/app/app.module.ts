@@ -2,6 +2,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CoreModule } from '@app/core.module';
+import { ProductsEffects } from '@modules/home/components/products/store/effects/products.effects';
+import { productsReducer } from '@modules/home/components/products/store/reducers/products.reducers';
 import { LoginEffects } from '@modules/login/store/effects/login.effects';
 import { loginReducer } from '@modules/login/store/reducers/login.reducers';
 import { EffectsModule } from '@ngrx/effects';
@@ -18,8 +20,8 @@ import { AppComponent } from './app.component';
     CoreModule,
     HttpClientModule,
     // NgRx
-    StoreModule.forRoot({ login: loginReducer }),
-    EffectsModule.forRoot([LoginEffects]),
+    StoreModule.forRoot({ login: loginReducer, products: productsReducer }),
+    EffectsModule.forRoot([LoginEffects, ProductsEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       autoPause: true,
