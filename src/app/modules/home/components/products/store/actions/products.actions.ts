@@ -13,3 +13,12 @@ export const fetchProductsFailure = createAction(
   '[Products API] Fetch Products Failure',
   props<{ readonly error: HttpErrorResponse }>()
 );
+
+export const toggleProductFavorite = createAction(
+  '[Products] Toggle Product Favorite',
+  props<{ readonly id: number }>()
+);
+
+export const resetFavoriteProducts = createAction(
+  '[Products] Reset Favorite Products'
+);

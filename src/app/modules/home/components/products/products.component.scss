@@ -25,7 +25,8 @@
       color: #ccc;
       font-size: 24px;
 
-      i:hover {
+      i:hover,
+      i.active {
         color: #f00;
       }
     }

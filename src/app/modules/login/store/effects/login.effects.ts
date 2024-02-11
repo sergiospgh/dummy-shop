@@ -24,7 +24,7 @@ export class LoginEffects {
       ofType(logIn),
       switchMap(({ payload }) =>
         this.loginService.login(payload).pipe(
-          tap(() => this.router.navigate([ROUTES.HOME])),
+          tap(() => this.router.navigate([ROUTES.PRODUCTS])),
           map((loginResponse) =>
             logInSuccess({
               response: loginResponse,

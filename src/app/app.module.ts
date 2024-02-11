@@ -1,7 +1,8 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CoreModule } from '@app/core.module';
+import { AuthInterceptor } from '@app/interceptors/auth.interceptor';
 import { ProductsEffects } from '@modules/home/components/products/store/effects/products.effects';
 import { productsReducer } from '@modules/home/components/products/store/reducers/products.reducers';
 import { LoginEffects } from '@modules/login/store/effects/login.effects';
@@ -27,7 +28,13 @@ import { AppComponent } from './app.component';
       autoPause: true,
     }),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

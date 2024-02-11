@@ -1,6 +1,6 @@
 import { NgModule, inject } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginGuard } from '@app/guards/login/login.guard';
+import { LoginGuard } from '@app/guards/login.guard';
 
 const routes: Routes = [
   {

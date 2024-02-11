@@ -14,13 +14,14 @@ const routes: Routes = [
             (m) => m.ProductsModule
           ),
       },
-      // {
-      //   path: 'favorites',
-      //   loadChildren: () =>
-      //     import('../favorites/favorites.module').then(
-      //       (m) => m.FavoritesModule
-      //     ),
-      // },
+      {
+        path: 'favorites',
+        data: { favorites: true },
+        loadChildren: () =>
+          import('./components/products/products.module').then(
+            (m) => m.ProductsModule
+          ),
+      },
       { path: '', redirectTo: 'products', pathMatch: 'full' },
     ],
   },

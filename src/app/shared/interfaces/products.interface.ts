@@ -5,5 +5,5 @@ export interface ProductsState {
 }
 
 export interface Product extends ProductResponse {
-  isFavorite: boolean;
+  isFavorite: boolean | null;
 }

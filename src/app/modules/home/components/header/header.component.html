@@ -5,19 +5,12 @@
 
   <div class="flex ml-8">
     <div class="flex align-items-center">
-      <a
-        class="cursor-pointer"
-        [routerLink]="[Routes.HOME]"
-        routerLinkActive="active"
-        >Productos</a
-      >
-      <a
-        class="cursor-pointer ml-3"
-        [routerLink]="[Routes.FAVORITES]"
-        routerLinkActive="active"
-      >
+      <button class="cursor-pointer" (click)="navigateToProducts()">
+        Productos
+      </button>
+      <button class="cursor-pointer ml-3" (click)="navigateToFavorites()">
         Favoritos
-      </a>
+      </button>
     </div>
   </div>
 
