@@ -1,19 +1,54 @@
 <div class="products-container">
-  <div *ngFor="let product of products" class="products-container__product">
-    <div class="favorite" (click)="toggleProductFavorite(product)">
-      <i
-        [class]="
-          'pi cursor-pointer ' +
-          (product.isFavorite ? 'pi-heart-fill active' : 'pi-heart')
-        "
-      ></i>
-    </div>
-    <img src="{{ product.thumbnail }}" alt="" height="150" width="200" />
+  <!-- Dropdown with options per page -->
+  <div class="products-container__dropdown">
+    <span class="mr-3">Products per page:</span>
+    <select (change)="changeProductsPerPage($event)">
+      <option *ngFor="let option of LimitOptions" [value]="option">
+        {{ option }}
+      </option>
+    </select>
+  </div>
 
-    <div class="products-container__product__info">
-      <span class="title">{{ product.title }}</span>
-      <span class="description">{{ product.description }}</span>
-      <span class="price">{{ product.price }}$</span>
+  <div class="products-container__list">
+    <div
+      *ngFor="let product of products"
+      class="products-container__list__product"
+    >
+      <div class="favorite" (click)="toggleProductFavorite(product)">
+        <i
+          [class]="
+            'pi cursor-pointer ' +
+            (product.isFavorite ? 'pi-heart-fill active' : 'pi-heart')
+          "
+        ></i>
+      </div>
+      <img src="{{ product.thumbnail }}" alt="" height="150" width="200" />
+
+      <div class="products-container__list__product__info">
+        <span class="title">{{ product.title }}</span>
+        <span class="description">{{ product.description }}</span>
+        <span class="price">{{ product.price }}$</span>
+      </div>
     </div>
+  </div>
+
+  <!-- Paginator -->
+  <div class="products-container__paginator">
+    <button
+      class="cursor-pointer"
+      [disabled]="filter.skip === 0"
+      (click)="changePage('previous')"
+    >
+      <i class="pi pi-chevron-left"></i>
+    </button>
+    <span>{{ getCurrentPage() }}</span>
+    <!-- TODO: Bloquear botón hasta que se haya cargado la página -->
+    <button
+      class="cursor-pointer"
+      [disabled]="filter.skip === total"
+      (click)="changePage('next')"
+    >
+      <i class="pi pi-chevron-right"></i>
+    </button>
   </div>
 </div>

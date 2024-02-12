@@ -6,5 +6,5 @@ export const getProducts = (state: AppState): ProductsState => state.products;
 
 export const selectProducts = createSelector(
   getProducts,
-  (products) => products?.items
+  (products) => products
 );

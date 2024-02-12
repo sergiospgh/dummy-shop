@@ -1,6 +1,6 @@
-export interface FetchProductsResponse {
-  limit: number;
+export interface GetProductsResponse {
   products: ProductResponse[];
+  limit: number;
   skip: number;
   total: number;
 }

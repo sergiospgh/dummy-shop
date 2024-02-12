@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { LoginFacade } from '@modules/login/facade/login.facade';
+import {
+  DefaultFilter,
+  DefaultSkip,
+  LimitOptions,
+} from '@shared/constants/products.constants';
 import { Product } from '@shared/interfaces/products.interface';
 import { takeUntil } from 'rxjs';
 import { ProductsFacade } from './facade/products.facade';
@@ -11,27 +15,20 @@ import { ProductsFacade } from './facade/products.facade';
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit {
+  readonly LimitOptions = LimitOptions;
+
   products: Product[] = [];
-  onlyFavorites = false;
+  total = 0;
+  filter = DefaultFilter;
 
   constructor(
-    private readonly activatedRoute: ActivatedRoute,
     private readonly productsFacade: ProductsFacade,
     private readonly loginFacade: LoginFacade
-  ) {
-    // Control navigation to this component
-    this.activatedRoute.data.subscribe((data) => {
-      // Check if the route has a 'favorites' parameter
-      this.onlyFavorites = !!data['favorites'];
-
-      // If not, reset all the favorite products
-      if (!this.onlyFavorites) {
-        this.productsFacade.resetFavoriteProducts();
-      }
-    });
-  }
+  ) {}
 
   ngOnInit(): void {
+    this.productsFacade.resetFavoriteProducts();
+
     this.setListeners();
   }
 
@@ -39,21 +36,43 @@ export class ProductsComponent implements OnInit {
     this.productsFacade.toggleProductFavorite(product);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  changeProductsPerPage(event: any) {
+    this.filter = { skip: DefaultSkip, limit: event.target.value };
+    this.productsFacade.getProducts(this.filter);
+  }
+
+  changePage(page: 'previous' | 'next') {
+    if (page === 'previous') {
+      this.filter = {
+        ...this.filter,
+        skip: this.filter.skip - this.filter.limit,
+      };
+    } else {
+      this.filter = {
+        ...this.filter,
+        skip: this.filter.skip + this.filter.limit,
+      };
+    }
+    this.productsFacade.getProducts(this.filter);
+  }
+
+  getCurrentPage(): number {
+    return this.filter.skip / this.filter.limit + 1;
+  }
+
   private setListeners() {
     this.productsFacade.products
       .pipe(takeUntil(this.loginFacade.unsubscribe$))
-      .subscribe((products) => {
-        if (!products || !products.length) {
-          this.productsFacade.fetchProducts();
+      .subscribe(({ items, limit, skip, total }) => {
+        if (!items || !items.length) {
+          this.productsFacade.getProducts(this.filter);
         }
 
-        if (this.onlyFavorites) {
-          products = products.filter(
-            (product) =>
-              product.isFavorite === true || product.isFavorite === false
-          );
-        }
-        this.products = products;
+        // Update products to the current page
+        this.products = items.slice(skip, this.getCurrentPage() * limit);
+        this.filter = { ...this.filter, limit, skip };
+        this.total = total;
       });
   }
 }

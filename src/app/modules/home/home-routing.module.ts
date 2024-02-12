@@ -16,13 +16,13 @@ const routes: Routes = [
       },
       {
         path: 'favorites',
-        data: { favorites: true },
         loadChildren: () =>
-          import('./components/products/products.module').then(
-            (m) => m.ProductsModule
+          import('./components/favorites/favorites.module').then(
+            (m) => m.FavoritesModule
           ),
       },
       { path: '', redirectTo: 'products', pathMatch: 'full' },
+      { path: '**', redirectTo: 'products', pathMatch: 'full' },
     ],
   },
 ];

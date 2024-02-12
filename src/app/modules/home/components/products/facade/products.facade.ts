@@ -2,10 +2,10 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { LoginFacade } from '@modules/login/facade/login.facade';
 import { Store } from '@ngrx/store';
 import { AppState } from '@shared/interfaces/app.interface';
-import { Product } from '@shared/interfaces/products.interface';
+import { Product, ProductsFilter } from '@shared/interfaces/products.interface';
 import { Subject, take } from 'rxjs';
 import {
-  fetchProducts,
+  getProducts,
   resetFavoriteProducts,
   toggleProductFavorite,
 } from '../store/actions/products.actions';
@@ -26,13 +26,13 @@ export class ProductsFacade implements OnDestroy {
     this.unsubscribe$.complete();
   }
 
-  fetchProducts(): void {
+  getProducts(filter: ProductsFilter): void {
     this.loginFacade
       .userIsAuthenticated()
       .pipe(take(1))
       .subscribe((isAuth) => {
         if (isAuth) {
-          this.store.dispatch(fetchProducts());
+          this.store.dispatch(getProducts({ filter }));
         }
       });
   }

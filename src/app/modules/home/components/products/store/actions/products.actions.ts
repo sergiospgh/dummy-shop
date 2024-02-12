@@ -1,16 +1,20 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { createAction, props } from '@ngrx/store';
-import { FetchProductsResponse } from '@shared/responses/products.response';
+import { ProductsFilter } from '@shared/interfaces/products.interface';
+import { GetProductsResponse } from '@shared/responses/products.response';
 
-export const fetchProducts = createAction('[Products] Fetch Products');
-
-export const fetchProductsSuccess = createAction(
-  '[Products API] Fetch Products Success',
-  props<{ readonly response: FetchProductsResponse }>()
+export const getProducts = createAction(
+  '[Products] Get Products',
+  props<{ readonly filter: ProductsFilter }>()
 );
 
-export const fetchProductsFailure = createAction(
-  '[Products API] Fetch Products Failure',
+export const getProductsSuccess = createAction(
+  '[Products API] Get Products Success',
+  props<{ readonly response: GetProductsResponse }>()
+);
+
+export const getProductsFailure = createAction(
+  '[Products API] Get Products Failure',
   props<{ readonly error: HttpErrorResponse }>()
 );
 
