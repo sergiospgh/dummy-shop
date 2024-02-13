@@ -1,5 +1,9 @@
 <div class="home-container">
-  <app-header (logOut)="onLogOut()"></app-header>
+  <div class="home-container__header">
+    <app-header (logOut)="onLogOut()"></app-header>
+  </div>
 
-  <router-outlet></router-outlet>
+  <div class="home-container__content">
+    <router-outlet></router-outlet>
+  </div>
 </div>

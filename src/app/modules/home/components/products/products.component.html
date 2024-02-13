@@ -1,12 +1,33 @@
 <div class="products-container">
   <!-- Dropdown with options per page -->
-  <div class="products-container__dropdown">
-    <span class="mr-3">Products per page:</span>
-    <select (change)="changeProductsPerPage($event)">
-      <option *ngFor="let option of LimitOptions" [value]="option">
-        {{ option }}
-      </option>
-    </select>
+  <div class="products-container__pagination">
+    <div class="results-per-page-dropdown">
+      <span class="mr-3">Products per page:</span>
+      <select (change)="changeProductsPerPage($event)">
+        <option *ngFor="let option of LimitOptions" [value]="option">
+          {{ option }}
+        </option>
+      </select>
+    </div>
+
+    <div class="paginator">
+      <button
+        class="cursor-pointer"
+        [disabled]="filter.skip === 0"
+        (click)="changePage('previous')"
+      >
+        <i class="pi pi-chevron-left"></i>
+      </button>
+      <span>{{ getCurrentPage() }}</span>
+      <!-- TODO: Bloquear botón hasta que se haya cargado la página -->
+      <button
+        class="cursor-pointer"
+        [disabled]="filter.skip === total"
+        (click)="changePage('next')"
+      >
+        <i class="pi pi-chevron-right"></i>
+      </button>
+    </div>
   </div>
 
   <div class="products-container__list">
@@ -33,22 +54,4 @@
   </div>
 
   <!-- Paginator -->
-  <div class="products-container__paginator">
-    <button
-      class="cursor-pointer"
-      [disabled]="filter.skip === 0"
-      (click)="changePage('previous')"
-    >
-      <i class="pi pi-chevron-left"></i>
-    </button>
-    <span>{{ getCurrentPage() }}</span>
-    <!-- TODO: Bloquear botón hasta que se haya cargado la página -->
-    <button
-      class="cursor-pointer"
-      [disabled]="filter.skip === total"
-      (click)="changePage('next')"
-    >
-      <i class="pi pi-chevron-right"></i>
-    </button>
-  </div>
 </div>

@@ -1,5 +1,6 @@
 @import 'primeflex/primeflex.scss';
 @import 'primeicons/primeicons.css';
+@import 'styles/variables.scss';
 
 html,
 body {
@@ -8,4 +9,33 @@ body {
 
 body {
   margin: 0;
+  background: $background-color;
+  font-family: $font-family-primary !important;
+}
+
+* {
+  font-family: inherit !important;
+}
+
+// Enable primeicons
+.pi {
+  font-family: 'primeicons' !important;
+}
+
+input:focus,
+input:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: none !important;
+  border: 1px solid $blue-1 !important;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  overflow-y: scroll;
+  background: grey;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $blue-1;
 }

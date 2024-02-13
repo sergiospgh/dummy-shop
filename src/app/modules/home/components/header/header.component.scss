@@ -1,12 +1,16 @@
+@import 'styles/variables.scss';
+
 .app-header {
-  position: fixed;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0rem 1rem;
-  height: 62px;
-  width: 966px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  background-color: #f8f9fa;
+  padding: 0rem 3rem;
+  height: 82px;
+  background-image: url('/assets/imgs/header-background.jpg');
+
+  button {
+    @extend %app-button;
+    width: 7rem;
+    height: 36px;
+  }
 }

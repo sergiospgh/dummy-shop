@@ -1,0 +1,31 @@
+$background-color: #f5f5f5;
+$blue-1: #007bff;
+$blue-2: #004d99;
+$grey-1: #434343;
+$font-family-primary: 'Roboto', sans-serif;
+
+$font-size-sm: 12px;
+$font-size-md: 14px;
+$font-size-lg: 28px;
+
+$font-weight-medium: 600;
+$font-weight-bold: 700;
+$font-weight-bolder: 800;
+
+%app-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: $blue-1;
+  color: white;
+  border-radius: 16px;
+  border: none;
+  font-size: 16px;
+}
+
+%title-font {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bolder;
+  color: $grey-1;
+}

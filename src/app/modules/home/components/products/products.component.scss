@@ -1,10 +1,43 @@
-.products-container {
-  padding-top: 80px;
+@import 'styles/variables.scss';
 
-  &__dropdown {
+.products-container {
+  overflow-y: auto;
+  height: 100%;
+
+  &__pagination {
     display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
+    justify-content: space-between;
+
+    .results-per-page-dropdown {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @extend %title-font;
+      margin-bottom: 1rem;
+
+      select {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        cursor: pointer;
+
+        font-size: $font-size-md;
+        font-weight: $font-weight-medium;
+      }
+    }
+
+    .paginator {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 6rem;
+      font-size: $font-size-md;
+
+      button {
+        width: 2rem;
+        height: 2rem;
+      }
+    }
   }
 
   &__list {
@@ -61,11 +94,5 @@
         }
       }
     }
-  }
-
-  &__paginator {
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
   }
 }
