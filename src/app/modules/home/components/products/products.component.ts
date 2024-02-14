@@ -5,7 +5,7 @@ import {
   DefaultSkip,
   LimitOptions,
 } from '@shared/constants/products.constants';
-import { Product } from '@shared/interfaces/products.interface';
+import { Product, ProductsFilter } from '@shared/interfaces/products.interface';
 import { takeUntil } from 'rxjs';
 import { ProductsFacade } from './facade/products.facade';
 
@@ -19,7 +19,8 @@ export class ProductsComponent implements OnInit {
 
   products: Product[] = [];
   total = 0;
-  filter = DefaultFilter;
+  filter!: ProductsFilter;
+  contentLoading = false;
 
   constructor(
     private readonly productsFacade: ProductsFacade,
@@ -28,7 +29,9 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.productsFacade.resetFavoriteProducts();
+    this.filter = { ...DefaultFilter };
 
+    this.productsFacade.getProducts(this.filter);
     this.setListeners();
   }
 
@@ -54,6 +57,7 @@ export class ProductsComponent implements OnInit {
         skip: this.filter.skip + this.filter.limit,
       };
     }
+    this.contentLoading = true;
     this.productsFacade.getProducts(this.filter);
   }
 
@@ -65,14 +69,11 @@ export class ProductsComponent implements OnInit {
     this.productsFacade.products
       .pipe(takeUntil(this.loginFacade.unsubscribe$))
       .subscribe(({ items, limit, skip, total }) => {
-        if (!items || !items.length) {
-          this.productsFacade.getProducts(this.filter);
-        }
-
         // Update products to the current page
         this.products = items.slice(skip, this.getCurrentPage() * limit);
         this.filter = { ...this.filter, limit, skip };
         this.total = total;
+        this.contentLoading = false;
       });
   }
 }

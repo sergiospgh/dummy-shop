@@ -37,6 +37,7 @@ LazyLoading
 PrimeFlex para facilitar diseño desde HTML
 PrimeIcons para algunos iconos
 Algo de testing unitario
+Añadir variables.scss con colores, tamaños, estilos de botones, etc
 
 # No he añadido (por falta de tiempo o por no ser necesario)
 
@@ -49,10 +50,10 @@ Metareducers para control de sesión y persistencia de datos
 Control de diferentes pestañas o ventanas abiertas con la misma aplicación, refresco de pestaña, cierre de pestaña o navegador, etc. (más allá de lo que controla Redux)
 Timers inactividad y/o de sesión máxima de usuario
 Interceptor de errores que muestre un modal con los error que vengan del Backend
+Interceptor de peticiones a backend con loading
 No le he pasado checkeos de SonarQube
 Resolvers
+BACKEND Mockeado (con service-workers)
+PWA
 
 # Pensando si añadirlo
-
-BACKEND Mockeado (con service-workers)
-Añadir variables.scss con colores, tamaños, estilos de botones, etc

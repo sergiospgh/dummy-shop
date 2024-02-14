@@ -1,22 +1,29 @@
 <div class="products-container">
+  <div class="products-container__header">
+    <div class="title">
+      <span class="mr-3">Favorites</span>
+    </div>
+  </div>
   <div class="products-container__list">
     <div
       *ngFor="let product of favoriteProducts"
       class="products-container__list__product"
     >
-      <div class="favorite" (click)="toggleProductFavorite(product)">
-        <i
-          [class]="
-            'pi cursor-pointer ' +
-            (product.isFavorite ? 'pi-heart-fill active' : 'pi-heart')
-          "
-        ></i>
-      </div>
       <img src="{{ product.thumbnail }}" alt="" height="150" width="200" />
 
-      <div class="products-container__list__product__info">
-        <span class="title">{{ product.title }}</span>
-        <span class="description">{{ product.description }}</span>
+      <div class="products-container__list__product__info ml-4">
+        <div class="title">
+          {{ product.title }}
+          <div class="favorite" (click)="toggleProductFavorite(product)">
+            <i
+              [class]="
+                'pi cursor-pointer ' +
+                (product.isFavorite ? 'pi-heart-fill active' : 'pi-heart')
+              "
+            ></i>
+          </div>
+        </div>
+        <p class="description">{{ product.description }}</p>
         <span class="price">{{ product.price }}$</span>
       </div>
     </div>

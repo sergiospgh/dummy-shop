@@ -1,6 +1,7 @@
 .home-container {
   height: 100%;
   display: grid;
+  grid-template-rows: 82px 1fr;
 
   &__header {
     height: 82px;
