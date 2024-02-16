@@ -1,59 +1,66 @@
 # DummyShop
 
 This project was generated with
-_ [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0
-_ [Node JS](https://nodejs.org/en) version 18.10.0
 
-TODO: Añadir descripción del proyecto
+- [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0
+- [Node JS](https://nodejs.org/en) version 18.10.0
 
-## Development server
+## Commands to run the project
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```
+npm install && npm run start
+```
 
-## Code scaffolding
+## Commands for running Unit tests
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+npm run test
+```
 
-## Build
+```
+npm run test:coverage
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+# Project libraries and utilities
 
-## Running unit tests
+Libraries:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Prettier
+- ESLint
+- PrimeFlex (CSS Grid)
+- PrimeIcons (Icons)
 
-## Running end-to-end tests
+Patterns:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Redux pattern (NgRx) for state management
+- Facade (Facade) for the communication between the components and the store
+- BEM for HTML and SCSS (Block, Element, Modifier)
 
-# He añadido
+Utilities:
 
-Prettier
-ESLint
-Patrón Redux (NgRx)
-Patrón Fachada (Facade)
-Patrón de diseño (BEM)
-LazyLoading
-PrimeFlex para facilitar diseño desde HTML
-PrimeIcons para algunos iconos
-Algo de testing unitario
-Añadir variables.scss con colores, tamaños, estilos de botones, etc
+- Folder structure with modules and LazyLoading
+- Shared constats, interfaces, payloads and responses
+- Auth Guard
+- Auth Interceptor
+- Media Queries for responsive design
+- SCSS variables for colors, fonts, and sizes
+- Routing redirections
+- Repository with git conventional commits
 
-# No he añadido (por falta de tiempo o por no ser necesario)
+# Not included (due to lack of time or not necessary)
 
-NGX-Translate ni multi-idioma
-Husky
-Environments
-Docker
-Framework de diseño (Bootstrap, Material, PrimeNG, etc)
-Metareducers para control de sesión y persistencia de datos
-Control de diferentes pestañas o ventanas abiertas con la misma aplicación, refresco de pestaña, cierre de pestaña o navegador, etc. (más allá de lo que controla Redux)
-Timers inactividad y/o de sesión máxima de usuario
-Interceptor de errores que muestre un modal con los error que vengan del Backend
-Interceptor de peticiones a backend con loading
-No le he pasado checkeos de SonarQube
-Resolvers
-BACKEND Mockeado (con service-workers)
-PWA
-
-# Pensando si añadirlo
+- NGX-Translate or multi-language
+- Husky (Git hooks management)
+- Environments
+- Unit testing
+- Docker
+- Design framework (Bootstrap, Material, PrimeNG, etc)
+- Metareducers for session control and data persistence
+- Control of different tabs or windows opened with the same application, tab refresh, tab or browser closing, etc. (beyond what Redux controls)
+- Inactivity and/or maximum user session timers
+- Error interceptor that shows a modal with the errors that come from the Backend
+- Backend request interceptor with loading spinner
+- SonarQube configurations or checks
+- Resolvers
+- Mocked Backend (with service-workers)
+- PWA Settings
